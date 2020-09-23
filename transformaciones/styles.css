@@ -1,0 +1,93 @@
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.box, .box-2{
+  width: 200px;
+  height: 200px;
+  margin: 0 1rem;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  /* comienzan las propiedades para las transiciones */
+  /* para que la animacion no se vea el cambio tan bursco */
+  transition: transform .5s;
+}
+
+.box:hover{
+  background-color: blueviolet;
+  color: black;
+
+  /* aplicando la transformacion */
+  /* Para hacer este tipo de animaciones siempre es mejor usar transform
+  en lugar de posicionamiento. Esto debido a que transform gasta muchisimo menos recursos
+  que con posicionamiento. Y el resultado es el mismo */
+  /* Otra beneficio es que al usar transform los elementos al ser animados se colocan
+  en una capa superior y quedan por encima del diseño mientras que con posicionamiento
+  los elementos quedan por debajo*/
+
+  /* Para mover el el eje X */
+  /* transform: translateX(100%); */
+
+  /* Para mover en el eje Y */
+  /* transform: translateY(100%); */
+
+  /* Para mover en los dos ejes (en diagonal) */
+  /* Los dos positivos iran en diagola hacia abajo a la derecha */
+  /* transform: translate(100%, 100%); */
+
+  /* Para mover en los dos ejes (en diagonal) */
+  /* Los dos positivos iran en diagola hacia arriba a la izquierda */
+  /* transform: translate(-100%, -100%); */
+
+  /* En diagonal hacia abajo a la izquierda */
+  /* transform: translate(-100%, 100%); */
+
+  /* En diagonal haci arriba a la derecha */
+  /* transform: translate(100%, -100%); */
+
+  /* Propiedad Scale */
+
+  /* el elemento desaparece */
+  /* transform: scale(0); */
+
+  /* duplica su tamaño */
+  /* transform: scale(2); */
+
+  /* triplica su tamaño */
+  /* y asi sucesivamente */
+  /* transform: scale(3); */
+
+  /* Va desapareciendo el elemento desde lo ancho hacia el centro */
+  /* transform: scaleX(0); */
+
+  /* Se hace lo doble de ancho */
+  /* transform: scaleX(2); */
+
+  /* Va desapareciendo los elementos desde arriba y abaja hacie el centro */
+  /* transform: scaleY(0); */
+
+  /* se hace lo doble de alto */
+  /* transform: scaleY(2); */
+
+  /* se puede ocupar el shorthand -> transform: scale(2,0); */
+
+  /* Propiedad rotate */
+  transform: rotate(-45deg);
+  /* transform: rotate(-1turn); */
+
+  /* Gira el elemento en su propio eje */
+  /* transform: rotateX(180deg); */
+  /* transform: rotateY(180deg); */
+
+  /* Existe skew pero ya no se usa por que ahora es mejor usar clip path 
+  La mejor es que clip path no deforma el texto dentro de la caja y skew si */
+  /* transform: skew(45deg); */
+}

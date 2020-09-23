@@ -1,0 +1,30 @@
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.box{
+  width: 200px;
+  height: 200px;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  /* comienzan las propiedades para las transiciones */
+  /* para usar mas de dos propiedades se deben separar por comas */
+  transition-property: background-color, color;
+  /* Si se vana  poner tiempos diferentes para cada propiedad entonces tanbien se deben de 
+  separar por comas */
+  transition-duration: 1s;
+  transition-delay: 0s, 1s;
+}
+
+.box:hover{
+  background-color: blueviolet;
+  color: black;
+}

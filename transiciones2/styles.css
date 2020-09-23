@@ -1,0 +1,51 @@
+body{
+  margin: 0;
+}
+
+.container{
+  background-color: salmon;
+}
+
+.box{
+  width: 80px;
+  height: 60px;
+  font-size: .8em;
+  background-color: royalblue;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* propiedades de transicion */
+  transition-property: transform;
+  transition-duration: 2s;
+}
+
+.container:hover .box{
+  /* le restamos el 100% pero del tamaño de la caja por que de lo contrario la caja se saldria 
+  de la pantalla */
+  transform: translateX(calc(100vw - 100%));
+}
+
+.ease{
+  transition-timing-function: ease;
+}
+
+.ease-in{
+  transition-timing-function: ease-in;
+}
+
+.ease-out{
+  transition-timing-function: ease-out;
+}
+
+.ease-in-out{
+  transition-timing-function: ease-in-out;
+}
+
+.linear{
+  transition-timing-function: linear;
+}
+
+/* Para usar el shorthand se debe poner en cualquier orden pero si se va a usar delay
+este debe ir despues de la duracion siemore */
+/* transition: transform 2s 1s ease-in  */
