@@ -1,0 +1,191 @@
+body{
+  margin: 0;
+  background-color: #2a363b;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.title{
+  text-align: center;
+  color: #eee;
+}
+
+.buttons{
+  width: 100%;
+  margin-left: auto;
+  /* background-color: red; */
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button{
+  background: none;
+  outline: none;
+  border: 2px solid #ffd8d5;
+  font-size: 1.3rem;
+  color: #ff847c;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  /* position relative por que vamos a ocupar after y before */
+  position: relative;
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+/* Efecto para rellenar el boton */
+.button--fill{
+  transition: color .4s;
+}
+
+.button--fill:hover{
+  color: #2a363b;
+}
+
+.button--fill::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ff847c;
+  z-index: -1;
+  /* Aqui controlamos desde donde queremos que venga el relleno */
+  transform: translateX(-100%);
+  /* darle una transicion para que el cambio no sea tan brusco */
+  transition: transform .4s;
+}
+
+/* para hacer el efecto de relleno */
+.button--fill:hover::before{
+  transform: translateX(0);
+}
+
+/* Animacion de una cruz que viene desde el centro */
+
+.button--cross{
+  transition: color .4s;
+}
+
+.button--cross:hover{
+  color: #2a363b;
+}
+
+.button--cross::after,
+.button--cross::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ff847c;
+  z-index: -1;
+  /* agregar linear si no queremos las aceleraciones */
+  transition: transform .6s linear;
+}
+
+.button--cross::before{
+  transform: rotateY(90deg);
+}
+
+.button--cross::after{
+  transform: rotateX(90deg);
+}
+
+.button--cross:hover::before,
+.button--cross:hover::after{
+  transform: rotate(0deg);
+}
+
+/* Efecto grow este es un ejemplo de animacion donde transform no es suficiente */
+.button--grow{
+  letter-spacing: -1px;
+  transition: box-shadow .5s, letter-spacing .5s;
+}
+
+.button--grow:hover{
+  letter-spacing: 5px;
+  box-shadow: 0 0 0 5px #ff847c;
+}
+
+/* Efecto de texto haciendose grande*/
+.button--scale-text{
+  transition: color .4s;
+}
+
+.button--scale-text:hover{
+  color: #2a363b;
+}
+
+/* poniendo un texto encima de otro */
+.button--scale-text::before{
+  content: attr(data-content);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(5);
+  color: #ff847c;
+  background-color: #2a363b;
+  opacity: 0;
+  transition: transform .5s, opacity .5s;
+} 
+
+.button--scale-text:hover::before{
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* Efecto de brillo */
+.button--shiny{
+  transition: color .4s;
+}
+
+.button--shiny:hover{
+  color: #2a363b;
+}
+
+/* haciendo el efecto */
+.button--shiny::before,
+.button--shiny::after{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.button--shiny:hover::before{
+  background-color: #7c90ff;
+}
+
+.button--shiny::after{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  top: 50%;
+  height: 20%;
+  transform: rotate(45deg) translateY(1050%);
+  transition: background-color .4s;
+}
+
+.button--shiny:hover::after{
+  transition: background-color .4s, transform .6s;
+  transform: rotate(45deg) translateY(-1150%);
+}

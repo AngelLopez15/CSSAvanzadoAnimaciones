@@ -1,0 +1,64 @@
+body{
+  margin:0;
+  background-color: #2a363b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.title{
+  text-align: center;
+  color:#aaa;
+}
+
+.main-menu{
+  list-style: none;
+  padding-left: 0;
+  width: 95%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  background-color: #ff847c;
+  font-size: 1.2rem;
+  color: #2a363b;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  border-radius: 30px;
+}
+
+.main-menu__item{
+  position: relative;
+  cursor: pointer;
+  padding: 1.5rem 0;
+  /* Para ocultar las lineas */
+  overflow: hidden;
+}
+
+.main-menu__item::before,
+.main-menu__item::after{
+  /* content vacio por que si no no se dibujan los psudoelementos */
+  content: "";
+  /* para poder darle medidas */
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #2a363b;
+  /* Simpre debemos tratar de animar con transform. Casi siempre se va a poder
+  hacer la animacion con un transform salvo casos muy particulares */
+  transition: transform .2s;
+}
+
+.main-menu__item::before{
+  top: 15px;
+  transform: translateX(-100%);
+}
+
+.main-menu__item::after{
+  bottom: 15px;
+  transform: translateX(100%);
+}
+
+.main-menu__item:hover::after,
+.main-menu__item:hover::before{
+  transform: translateX(0);
+}
