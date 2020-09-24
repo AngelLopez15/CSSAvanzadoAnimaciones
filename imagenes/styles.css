@@ -1,0 +1,210 @@
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #aaa;
+}
+img {
+  max-width: 100%;
+}
+
+.title{
+  text-align: center;
+  color: #aaa;
+}
+
+.images{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 30px;
+  justify-content: center;
+  column-gap: 100px;
+  align-items: center;
+}
+
+.image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* efecto del image--close */
+.image--close{
+  position: relative;
+}
+
+.image--close::before,
+.image--close::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 23, 23, .8);
+  transition: transform .4s;
+}
+
+.image--close::before{
+  top: 0;
+  right: 0;
+  /* Para dibujar un triangulo */
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  transform: translateX(100%);
+}
+
+.image--close::after{
+  top: 0;
+  left: 0;
+  /* Para dibujar un triangulo */
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  transform: translateX(-100%);
+}
+
+.image--close:hover::before{
+  transform: translateX(10%);
+}
+
+.image--close:hover::after{
+  transform: translateX(-10%);
+}
+
+.image__title--close{
+  background-color: #111;
+  color: #fff;
+  width: 25%;
+  text-align: center;
+  position: absolute;
+  line-height: 2;
+  /* left: 50%; */
+  /* transform: translate(-50%) scale(0); */
+  transform: scale(0);
+  z-index: 1;
+  transition: transform .4s;
+}
+
+.image--close:hover .image__title--close{
+  /* transform: translate(-50%) scale(1); */
+  transform: scale(1);
+}
+
+/* Efecto de lineas que aparecen*/
+.image--lines{
+  position: relative;
+}
+
+.image--lines img{
+  filter: grayscale(.1);
+  transition: filter .4s;
+}
+
+.image--lines:hover img{
+  filter: grayscale(.8);
+}
+
+.image--lines::before,
+.image--lines::after{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  background-color:purple;
+  transition: transform .4s;
+  z-index: 1;
+}
+
+.image--lines::before{
+  bottom: 110px;
+  right: 0;
+  width: 100%;
+  transform: translateX(100%);
+}
+
+.image--lines::after{
+  bottom: 30px;
+  left: 0;
+  width: 50%;
+  transform: translateX(-100%);
+}
+
+.image--lines:hover::before,
+.image--lines:hover::after{
+  transform: translateX(0);
+}
+
+.image__title--lines{
+  background-color:turquoise;
+  columns: #111;
+  width: 30%;
+  position: absolute;
+  text-align: center;
+  line-height: 2;
+  bottom: 30px;
+  left: 25px;
+  z-index: 1;
+  transition: transform .4s;
+}
+
+.image__title--lines::before,
+.image__title--lines::after{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  background-color:purple;
+  transform: rotate(90deg);
+  transition: transform .4s;
+  z-index: 1;
+}
+
+.image__title--lines::before{
+  left: -210px;
+  top: -120px;
+  width: 450%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.image__title--lines::after{
+  left: -45px;
+  top: 100px;
+  width: 320%;
+  transform: rotate(90deg) translateX(50%);
+}
+
+.image--lines:hover .image__title--lines::before,
+.image--lines:hover .image__title--lines::after{
+  transform: rotate(90deg) translateX(0);
+}
+
+/* Efecto de scalar imagen */
+.image--scale{
+  background-color: #333;
+  overflow: initial;
+  position: relative;
+}
+
+.image--scale img{
+  position: relative;
+  transform-origin: right center;
+  transition: transform .5s;
+  z-index: 1;
+}
+
+.image--scale:hover img{
+  transform: scale(.7) translateX(70px);
+}
+
+.image__text{
+  position: absolute;
+  color: #ccc;
+  transition: transform .5s;
+  font-size: 1rem;
+  width: 40%;
+}
+
+.image--scale:hover .image__text{
+  transform: translateX(-80px);
+}
