@@ -1,0 +1,53 @@
+body{
+  margin: 0;
+  min-height: 100vh;
+  animation-name: background;
+  animation-duration: 5s;
+  background-color: royalblue;
+  /* descomentar la animacion que se quiera ver cada linea es una funcion diferente */
+  /* animation-play-state: paused; */
+  /* animation-delay: 3s; */
+  animation-timing-function: steps(5);
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes background {
+  0%{
+    background-color: greenyellow;
+  }
+  50%{
+    background-color: red;
+  }
+}
+
+/* Para hacer el ejemplo animation direction */
+/* 
+body{
+  margin: 0;
+  min-height: 100vh;
+  animation-duration: 5s;
+  background-color: royalblue;
+}
+
+.box{
+  height: 200px;
+  background-color: salmon;
+  display: flex;
+  align-items: center;
+}
+
+.children{
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+  animation-name: translate;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes translate {
+  100% {
+    transform: translateX(calc(100vw - 100%));
+  }
+} */
